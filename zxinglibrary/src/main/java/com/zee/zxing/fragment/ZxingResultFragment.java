@@ -45,10 +45,7 @@ public class ZxingResultFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(PERMISSIONS1, 100);
         }
-
         Intent intent = new Intent(getActivity(), CaptureActivity.class);
-
-//        intent.putExtra(Constant.INTENT_ZXING_CONFIG, config);
         startActivityForResult(intent, REQUEST_CODE_SCAN);
     }
 
@@ -66,6 +63,7 @@ public class ZxingResultFragment extends Fragment {
                 }
             }
         }
+        getFragmentManager().beginTransaction().remove(this).commit();
     }
 
     /**
@@ -88,6 +86,5 @@ public class ZxingResultFragment extends Fragment {
             }
         }
 
-        getFragmentManager().beginTransaction().remove(this).commit();
     }
 }
