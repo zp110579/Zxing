@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
-
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.yuzhiqiang1993'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 28
@@ -11,7 +9,6 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        vectorDrawables.useSupportLibrary = true
     }
 
 
@@ -20,9 +17,38 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     api files('libs/core-3.3.3.jar')
-    compileOnly "com.android.support:appcompat-v7:$android_support"
-    compileOnly "com.android.support:design:$android_support"
-    compileOnly "com.android.support:support-v4:$android_support"
-    compileOnly "com.android.support:support-vector-drawable:$android_support"
+    compileOnly "com.android.support:appcompat-v7:28.0.0"
+    compileOnly "com.android.support:design:28.0.0"
+    compileOnly "com.android.support:support-v4:28.0.0"
+    compileOnly "com.android.support:support-vector-drawable:28.0.0"
 
 }
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+    }
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
+
+publish {
+    userOrg = 'zp110570'
+    groupId = 'com.zee'
+    artifactId = 'zxing'
+    publishVersion = '0.0.1'
+    desc = 'new version'
+    website = 'https://github.com/zp110579/Zxing'
+
+}
+

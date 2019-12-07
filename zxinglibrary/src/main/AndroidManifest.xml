@@ -17,10 +17,6 @@
     <!--suppress AndroidUnknownAttribute -->
     <application>
         <activity
-            android:name="com.zee.zxing.activity.CaptureActivity"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            android:name="com.zee.zxing.activity.CaptureActivity"/>
     </application>
 </manifest>

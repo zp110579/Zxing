@@ -18,6 +18,8 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,12 +45,12 @@ public class CaptureActivity extends AppCompatActivity implements SurfaceHolder.
     public ZxingConfig config;
     private SurfaceView previewView;
     private ViewfinderView viewfinderView;
-    private AppCompatImageView flashLightIv;
+    private ImageView flashLightIv;
     private TextView flashLightTv;
-    private AppCompatImageView backIv;
-    private LinearLayoutCompat flashLightLayout;
-    private LinearLayoutCompat albumLayout;
-    private LinearLayoutCompat bottomLayout;
+    private ImageView backIv;
+    private LinearLayout flashLightLayout;
+    private LinearLayout albumLayout;
+    private LinearLayout bottomLayout;
     private boolean hasSurface;
     private InactivityTimer inactivityTimer;
     private BeepManager beepManager;
