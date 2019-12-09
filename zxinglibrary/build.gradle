@@ -48,7 +48,7 @@ publish {
     userOrg = 'zp110570'
     groupId = 'com.zee'
     artifactId = 'zxing'
-    publishVersion = '0.0.1'
+    publishVersion = '0.0.2'
     desc = 'new version'
     website = 'https://github.com/zp110579/Zxing'
 

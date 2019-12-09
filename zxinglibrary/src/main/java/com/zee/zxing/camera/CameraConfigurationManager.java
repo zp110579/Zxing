@@ -19,6 +19,7 @@ package com.zee.zxing.camera;
 import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
+import android.os.Build;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
@@ -39,7 +40,6 @@ final class CameraConfigurationManager {
     private Point cameraResolution;
 
 
-
     CameraConfigurationManager(Context context) {
         this.context = context;
     }
@@ -50,6 +50,9 @@ final class CameraConfigurationManager {
         WindowManager manager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
         screenResolution = new Point(display.getWidth(), display.getHeight());
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//            display.getRealSize(screenResolution);
+//        }
         Log.d(TAG, "Screen resolution: " + screenResolution);
 
         Point screenResolutionForCamera = new Point();
@@ -159,7 +162,7 @@ final class CameraConfigurationManager {
 
     private static int findBestMotZoomValue(CharSequence stringValues, int tenDesiredZoom) {
 
-        Log.i("CameraManager","findBestMotZoomValue");
+        Log.i("CameraManager", "findBestMotZoomValue");
         int tenBestValue = 0;
         for (String stringValue : COMMA_PATTERN.split(stringValues)) {
             stringValue = stringValue.trim();
@@ -175,15 +178,14 @@ final class CameraConfigurationManager {
             }
         }
 
-        Log.i("findBestMotZoomValue",tenBestValue+"");
+        Log.i("findBestMotZoomValue", tenBestValue + "");
         return tenBestValue;
     }
 
 
-
     private void setZoom(Camera.Parameters parameters) {
 
-        Log.i("CameraManager","setZoom");
+        Log.i("CameraManager", "setZoom");
 
         String zoomSupportedString = parameters.get("zoom-supported");
         if (zoomSupportedString != null && !Boolean.parseBoolean(zoomSupportedString)) {

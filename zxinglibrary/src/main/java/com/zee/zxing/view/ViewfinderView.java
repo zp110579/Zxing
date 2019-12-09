@@ -52,18 +52,13 @@ public final class ViewfinderView extends View {
     private ValueAnimator valueAnimator;
     private Rect frame;
 
-
     public ViewfinderView(Context context) {
         this(context, null);
-
     }
 
     public ViewfinderView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
-
-
     }
-
 
     public void setZxingConfig(ZxingConfig config) {
         this.config = config;
@@ -138,17 +133,12 @@ public final class ViewfinderView extends View {
 
                 }
             });
-
             valueAnimator.start();
         }
-
-
     }
 
     public void setCameraManager(CameraManager cameraManager) {
         this.cameraManager = cameraManager;
-
-
     }
 
     public void stopAnimator() {
@@ -157,7 +147,6 @@ public final class ViewfinderView extends View {
             valueAnimator.cancel();
             valueAnimator = null;
         }
-
     }
 
     @SuppressLint("DrawAllocation")
