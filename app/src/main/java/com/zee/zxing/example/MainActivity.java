@@ -3,9 +3,7 @@ package com.zee.zxing.example;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -16,18 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
 import com.zee.utils.ZLibrary;
-import com.zee.zxing.activity.CaptureActivity;
-import com.zee.zxing.bean.ZxingConfig;
 import com.zee.zxing.bean.ZxingResultListener;
 import com.zee.zxing.common.Constant;
 import com.zee.zxing.common.ZxingManager;
 import com.zee.zxing.encode.CodeCreator;
-
-import java.util.List;
 
 
 /**
@@ -106,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void finish(String message) {
                         Toast.makeText(MainActivity.this, "没有权限无法扫描呦" + message, Toast.LENGTH_LONG).show();
                     }
-                }).with(this).letGo();
+                }).with(this).letsGo();
 
 
 //                AndPermission.with(this)

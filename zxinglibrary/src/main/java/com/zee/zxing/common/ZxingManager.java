@@ -43,7 +43,7 @@ public class ZxingManager {
         return this;
     }
 
-    public void letGo() {
+    public void letsGo() {
         /*ZxingConfig是配置类
          *可以设置是否显示底部布局，闪光灯，相册，
          * 是否播放提示音  震动
